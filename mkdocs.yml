@@ -1,0 +1,7 @@
+site_name: Linux Administration - Sessions
+use_directory_urls: false
+theme:
+    name: "material"
+    font: false
+plugins:
+  - mkdocstrings

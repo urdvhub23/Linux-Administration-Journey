@@ -1,0 +1,1753 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="./assets/images/favicon.png">
+      <meta name="generator" content="zensical-0.1.0">
+    
+    
+      
+        <title>Linux Systems Administration - Linux Administration - Sessions</title>
+      
+    
+    
+      
+        
+      
+      <link rel="stylesheet" href="./assets/stylesheets/modern/main.4ab2de0c.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+    
+    
+    <script>__md_scope=new URL(".",location),__md_scope.pathname.endsWith("/")||(__md_scope=new URL(__md_scope.pathname+"/",location)),__md_hash=e=>[...e].reduce(((e,t)=>(e<<5)-e+t.charCodeAt(0)),0),__md_get=(e,t=localStorage,_=__md_scope)=>JSON.parse(t.getItem(_.pathname+"."+e)),__md_set=(e,t,_=localStorage,a=__md_scope)=>{try{_.setItem(a.pathname+"."+e,JSON.stringify(t))}catch(e){}},document.documentElement.setAttribute("data-platform",navigator.platform)</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer" aria-hidden="true"></label>
+    <div data-md-component="skip">
+      <a href="#__skip" class="md-skip">
+        Skip to content
+      </a>
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="index.html" title="Linux Administration - Sessions" class="md-header__button md-logo" aria-label="Linux Administration - Sessions" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-book-open" viewBox="0 0 24 24"><path d="M12 5v16M20.001 19A2 2 0 0 0 22 17V5a2 2 0 0 0-1.999-2L16 3.002A5 5 0 0 0 12 5a5 5 0 0 0-4-2H4a2 2 0 0 0-2 2v12a2 2 0 0 0 1.999 2H8a5 5 0 0 1 4 2 5 5 0 0 1 4-2z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-menu" viewBox="0 0 24 24"><path d="M4 5h16M4 12h16M4 19h16"/></svg>
+      <span class="md-visually-hidden">Navigation</span>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Linux Administration - Sessions
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Linux Systems Administration
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-search" viewBox="0 0 24 24"><path d="m21 21-4.34-4.34"/><circle cx="11" cy="11" r="8"/></svg>
+          <span class="md-visually-hidden">Search</span>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog" aria-label="Search">
+  <button type="button" class="md-search__button">
+    Search
+  </button>
+</div>
+      
+    
+    <div class="md-header__source">
+      
+    </div>
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="index.html" title="Linux Administration - Sessions" class="md-nav__button md-logo" aria-label="Linux Administration - Sessions" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-book-open" viewBox="0 0 24 24"><path d="M12 5v16M20.001 19A2 2 0 0 0 22 17V5a2 2 0 0 0-1.999-2L16 3.002A5 5 0 0 0 12 5a5 5 0 0 0-4-2H4a2 2 0 0 0-2 2v12a2 2 0 0 0 1.999 2H8a5 5 0 0 1 4 2 5 5 0 0 1 4-2z"/></svg>
+
+    </a>
+    Linux Administration - Sessions
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Linux Systems Administration
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="index.html" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Linux Systems Administration
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+
+<nav class="md-nav md-nav--secondary" aria-label="On this page">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      On this page
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#part-1-administration" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Part-1: Administration
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Part-1: Administration">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#notes-during-lectureclass" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Notes During Lecture/Class:
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#links" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Links:
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#terms" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Terms:
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#useful-tools" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Useful tools:
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#digging-deeper" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Digging Deeper:
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#reflective-questions" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Reflective Questions:
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#nov-426-tue-start-241-am-pst" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Nov 4.26, Tue | Start: 2:41 am PST
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#end-wed-nov-4-072220-pkt-2026" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        End: Wed Nov  4 07:22:20 PKT 2026
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#session-2" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Session-2
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Session-2">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#notes-during-lectureclass_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Notes During Lecture/Class:
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#links_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Links:
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#terms_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Terms:
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#command-notes" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Command Notes:
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#terms_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Terms:
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#reflection-questions" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Reflection Questions:
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Reflection Questions:">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#raw-notes" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Raw Notes:
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#iostat-xz-1-5" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        iostat -xz 1 5
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#do-we-appear-to-be-seeing-any-large-numbers-of-errors-why-might-retransmits-be-a-big-problem" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Do we appear to be seeing any large numbers of errors? Why might retransmits be a big problem?
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#vi-editor-sections" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        vi-editor sections:
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#understand-where-the-value-is-as-an-engineer-write-article" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        understand where the value is as an engineer - write article
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="understand where the value is as an engineer - write article">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#description" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        DESCRIPTION
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#read-documentation-in-info-format" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        &gt; Read documentation in Info format.
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#-understand-recursion" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        - <em>understand recursion</em>
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="- understand recursion">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#wed-nov-4-050406-pkt-2026" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Wed Nov  4 05:04:06 PKT 2026
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#wed-nov-4-052928-pkt-2026" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Wed Nov  4 05:29:28 PKT 2026
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#echo" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        * echo $$
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="* echo $$">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#name-lsof-list-open-files" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        NAME: lsof - list open files
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#l-symbolic-link" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        l - symbolic link
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#process-management" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Process Management
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Process Management">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#commands" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Commands:
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Commands:">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#wed-nov-4-071125-pkt-2026" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Wed Nov  4 07:11:25 PKT 2026
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#terms_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Terms:
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#reflection-questions_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Reflection Questions:
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#-wed-nov-4-2026-22202-pm-" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        ---Wed Nov 4, 2026 2:22:02 PM---
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#linux-labs01-system-checking" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        /Linux-Labs/01-system-checking
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  
+                    
+                    
+                    
+                      
+                    
+                    
+                      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+                      <div class="md-sidebar-button__wrapper">
+                        <label class="md-sidebar-button" for="__toc"></label>
+                      </div>
+                    
+                  
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--secondary" aria-label="On this page">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      On this page
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#part-1-administration" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Part-1: Administration
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Part-1: Administration">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#notes-during-lectureclass" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Notes During Lecture/Class:
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#links" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Links:
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#terms" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Terms:
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#useful-tools" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Useful tools:
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#digging-deeper" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Digging Deeper:
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#reflective-questions" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Reflective Questions:
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#nov-426-tue-start-241-am-pst" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Nov 4.26, Tue | Start: 2:41 am PST
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#end-wed-nov-4-072220-pkt-2026" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        End: Wed Nov  4 07:22:20 PKT 2026
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#session-2" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Session-2
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Session-2">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#notes-during-lectureclass_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Notes During Lecture/Class:
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#links_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Links:
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#terms_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Terms:
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#command-notes" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Command Notes:
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#terms_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Terms:
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#reflection-questions" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Reflection Questions:
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Reflection Questions:">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#raw-notes" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Raw Notes:
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#iostat-xz-1-5" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        iostat -xz 1 5
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#do-we-appear-to-be-seeing-any-large-numbers-of-errors-why-might-retransmits-be-a-big-problem" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Do we appear to be seeing any large numbers of errors? Why might retransmits be a big problem?
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#vi-editor-sections" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        vi-editor sections:
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#understand-where-the-value-is-as-an-engineer-write-article" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        understand where the value is as an engineer - write article
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="understand where the value is as an engineer - write article">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#description" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        DESCRIPTION
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#read-documentation-in-info-format" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        &gt; Read documentation in Info format.
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#-understand-recursion" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        - <em>understand recursion</em>
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="- understand recursion">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#wed-nov-4-050406-pkt-2026" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Wed Nov  4 05:04:06 PKT 2026
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#wed-nov-4-052928-pkt-2026" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Wed Nov  4 05:29:28 PKT 2026
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#echo" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        * echo $$
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="* echo $$">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#name-lsof-list-open-files" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        NAME: lsof - list open files
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#l-symbolic-link" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        l - symbolic link
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#process-management" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Process Management
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Process Management">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#commands" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Commands:
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Commands:">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#wed-nov-4-071125-pkt-2026" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Wed Nov  4 07:11:25 PKT 2026
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#terms_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Terms:
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#reflection-questions_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Reflection Questions:
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#-wed-nov-4-2026-22202-pm-" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        ---Wed Nov 4, 2026 2:22:02 PM---
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#linux-labs01-system-checking" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        /Linux-Labs/01-system-checking
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                <a id="__skip" tabindex="-1"></a>
+                
+                  
+
+
+<h1 id="linux-systems-administration">Linux Systems Administration<a class="headerlink" href="#linux-systems-administration" title="Permanent link">&para;</a></h1>
+<p>Start: Nov.3.26, Tue | Time: 05:16am
+End: Nov.3.26, Tue | Time: 6:00am
+Total Time</p>
+<h2 id="part-1-administration">Part-1: Administration<a class="headerlink" href="#part-1-administration" title="Permanent link">&para;</a></h2>
+<h4 id="notes-during-lectureclass">Notes During Lecture/Class:<a class="headerlink" href="#notes-during-lectureclass" title="Permanent link">&para;</a></h4>
+<hr />
+<h4 id="links">Links:<a class="headerlink" href="#links" title="Permanent link">&para;</a></h4>
+<hr />
+<h4 id="terms">Terms:<a class="headerlink" href="#terms" title="Permanent link">&para;</a></h4>
+<ul>
+<li>Kernel</li>
+<li>OS Version:</li>
+<li>Kernel Args:</li>
+<li>Modules</li>
+<li>Mount Points:</li>
+<li>Text Editor:</li>
+<li>Semantic Versioning:</li>
+<li>Code Reviews:</li>
+</ul>
+<hr />
+<h4 id="useful-tools">Useful tools:<a class="headerlink" href="#useful-tools" title="Permanent link">&para;</a></h4>
+<hr />
+<h4 id="digging-deeper">Digging Deeper:<a class="headerlink" href="#digging-deeper" title="Permanent link">&para;</a></h4>
+<hr />
+<h4 id="reflective-questions">Reflective Questions:<a class="headerlink" href="#reflective-questions" title="Permanent link">&para;</a></h4>
+<blockquote>
+<ol>
+<li>What questions do you still have this week?</li>
+<li>How are you going to use what you've learned in your current role?</li>
+<li>What you have build?</li>
+<li>Thinking as a DevOps</li>
+<li>Why should I listen to you?</li>
+<li>How much confident are you in your learning?</li>
+<li>How Linux Works?</li>
+<li>Scalability, Reliability and Security in Linux</li>
+<li>Infrastructure, Access, Security</li>
+<li>What is achieveable for you?</li>
+<li>Order of Learning</li>
+</ol>
+</blockquote>
+<hr />
+<h4 id="nov-426-tue-start-241-am-pst">Nov 4.26, Tue | Start: 2:41 am PST<a class="headerlink" href="#nov-426-tue-start-241-am-pst" title="Permanent link">&para;</a></h4>
+<h4 id="end-wed-nov-4-072220-pkt-2026">End: Wed Nov  4 07:22:20 PKT 2026<a class="headerlink" href="#end-wed-nov-4-072220-pkt-2026" title="Permanent link">&para;</a></h4>
+<hr />
+<h3 id="session-2">Session-2<a class="headerlink" href="#session-2" title="Permanent link">&para;</a></h3>
+<hr />
+<p>You are a new system administrator at a company. 
+You've been tasked with finding out information 
+about a set of servers that has very little to no 
+documentation on it. You find yourself at a command prompt 
+and need to find out what type of system you are working on.</p>
+<ol>
+<li>What is the release and version of the system?</li>
+<li>What is the kernel version?</li>
+<li>How long has the system been up, and how was its kernel called as GRUB booted it?</li>
+<li>Use the Solution to follow along and look around a new Linux system for the first time.</li>
+</ol>
+<hr />
+<h4 id="notes-during-lectureclass_1">Notes During Lecture/Class:<a class="headerlink" href="#notes-during-lectureclass_1" title="Permanent link">&para;</a></h4>
+<hr />
+<h4 id="links_1">Links:<a class="headerlink" href="#links_1" title="Permanent link">&para;</a></h4>
+<hr />
+<h4 id="terms_1">Terms:<a class="headerlink" href="#terms_1" title="Permanent link">&para;</a></h4>
+<ol>
+<li>Kernel</li>
+<li>OS Version:</li>
+<li>Kernel Args:</li>
+<li>Modules:<ul>
+<li>modules are things that plug in the the term modular means that we can add or remove components without breaking other pieces.</li>
+</ul>
+</li>
+<li>Mount Points:</li>
+<li>Text Editor:</li>
+<li>Semantic Versioning:</li>
+<li>Code Reviews:</li>
+</ol>
+<hr />
+<h4 id="command-notes">Command Notes:<a class="headerlink" href="#command-notes" title="Permanent link">&para;</a></h4>
+<ol>
+<li>
+<p>First we check what version of Linux we're on.</p>
+<blockquote>
+<p>cat /etc/*release</p>
+</blockquote>
+</li>
+<li>
+<p>Next we check the kernel version.</p>
+</li>
+<li>
+<p>apropos (2): get name and information about current kernel
+    &gt; - uname -r
+    &gt; - uname -a</p>
+</li>
+<li>
+<p>Next we might want to know how long the system has been up.
+    &gt; uptime
+    &gt; Description:
+        - uptime  gives a one line display of the following information.            - The current time, how long the system has been running, how many users are currently logged on, and the system load averages for the past 1, 5, and 15 minutes.</p>
+</li>
+<li>
+<p>Next we might want to see how the system booted and what kernel parameters were passed when the system was started.
+    &gt; $cat /proc/cmdline</p>
+</li>
+</ol>
+<hr />
+<h4 id="terms_2">Terms:<a class="headerlink" href="#terms_2" title="Permanent link">&para;</a></h4>
+<div class="language-text highlight"><pre><span></span><code>&gt; cat - concatenate files and print on the standard output
+#proc - process information, system information, and sysctl pseudo-filesystem
+#cmdline - root file containing info about kernel process starting on boot.
+</code></pre></div>
+<hr />
+<p>Useful tools:</p>
+<p>Digging Deeper:</p>
+<h2 id="reflection-questions">Reflection Questions:<a class="headerlink" href="#reflection-questions" title="Permanent link">&para;</a></h2>
+<hr />
+<h4 id="raw-notes">Raw Notes:<a class="headerlink" href="#raw-notes" title="Permanent link">&para;</a></h4>
+<blockquote>
+<p>Mount points map what's going on with block devices in my system devices and the places that they exist in the file system.</p>
+<blockquote>
+<p>Now let's dig a little deeper</p>
+</blockquote>
+</blockquote>
+<p>Do each command and think about what output you're looking at. You may run them multiple times, if needed and to compare the output.</p>
+<p>Solution
+Let's look at the virtual memory usage of this system.
+        vmstat 1 5</p>
+<p>What are you seeing here? Is this system under high memory usage or not?</p>
+<p>Next we check the overall CPU usage of the system every second for 5 seconds.</p>
+<div class="language-text highlight"><pre><span></span><code>    mpstat 1 5
+</code></pre></div>
+<p>Is this system under high CPU load or not?</p>
+<p>Next we check what processes are running on the system</p>
+<div class="language-text highlight"><pre><span></span><code>    ps -ef
+    ps -ef | awk &#39;{print $1}&#39; | sort | uniq -c
+</code></pre></div>
+<p>What users is using the most processes? Do you think this system is doing any real work or just sitting there running an OS?</p>
+<p>Next we check what processes are executing on the processor every second.</p>
+<p>pidstat 1 5</p>
+<p>Why do these have different length output? What processes were using the most CPU? Which showed up the most often?</p>
+<p>Next we may want to see more CPU and Disk usage on the system in 1 second increments. Do you think you could modify this to run for 30 seconds?</p>
+<h2 id="iostat-xz-1-5">iostat -xz 1 5<a class="headerlink" href="#iostat-xz-1-5" title="Permanent link">&para;</a></h2>
+<p>Linux Commands to see networking traffic and load
+Now let's dig a little deeper into networking</p>
+<p>Do each command and think about what output you're looking at. You may run them multiple times, if needed and to compare the output.</p>
+<p>Solution
+Solution
+Let's look at the network usage and load of the system.
+sar -n DEV 1 5</p>
+<p>What are you seeing here? What devices are showing up? Do any devices seem to be under high load? Which one has the most traffic?</p>
+<p>Next we check tcp packets and errors.</p>
+<p>sar -n TCP,ETCP 1 5</p>
+<h2 id="do-we-appear-to-be-seeing-any-large-numbers-of-errors-why-might-retransmits-be-a-big-problem">Do we appear to be seeing any large numbers of errors? Why might retransmits be a big problem?<a class="headerlink" href="#do-we-appear-to-be-seeing-any-large-numbers-of-errors-why-might-retransmits-be-a-big-problem" title="Permanent link">&para;</a></h2>
+<h2 id="vi-editor-sections">vi-editor sections:<a class="headerlink" href="#vi-editor-sections" title="Permanent link">&para;</a></h2>
+<p>write changes to a new file:</p>
+<p>$w newfile</p>
+<p>view a file in read-only mode</p>
+<p>$view file_name</p>
+<p>command(program) Options/Switches Arguments
+Options and Args change the behavior of the command entirely.</p>
+<hr />
+<h2 id="understand-where-the-value-is-as-an-engineer-write-article">understand where the value is as an engineer - write article<a class="headerlink" href="#understand-where-the-value-is-as-an-engineer-write-article" title="Permanent link">&para;</a></h2>
+<p>$info command_name</p>
+<p>NAME
+       info - read Info documents</p>
+<p>SYNOPSIS
+       info [OPTION]... [MENU-ITEM...]</p>
+<h6 id="description">DESCRIPTION<a class="headerlink" href="#description" title="Permanent link">&para;</a></h6>
+<h2 id="read-documentation-in-info-format">&gt; Read documentation in Info format.<a class="headerlink" href="#read-documentation-in-info-format" title="Permanent link">&para;</a></h2>
+<h2 id="-understand-recursion">- <em>understand recursion</em><a class="headerlink" href="#-understand-recursion" title="Permanent link">&para;</a></h2>
+<h5 id="wed-nov-4-050406-pkt-2026">Wed Nov  4 05:04:06 PKT 2026<a class="headerlink" href="#wed-nov-4-050406-pkt-2026" title="Permanent link">&para;</a></h5>
+<ul>
+<li>date cmd usage for logs</li>
+<li>start of Unix</li>
+<li>unix time</li>
+<li>epoch time</li>
+</ul>
+<hr />
+<h4 id="wed-nov-4-052928-pkt-2026">Wed Nov  4 05:29:28 PKT 2026<a class="headerlink" href="#wed-nov-4-052928-pkt-2026" title="Permanent link">&para;</a></h4>
+<div class="language-text highlight"><pre><span></span><code>```
+pwd
+
+```
+</code></pre></div>
+<h2 id="echo">* echo $$<a class="headerlink" href="#echo" title="Permanent link">&para;</a></h2>
+<h4 id="name-lsof-list-open-files">NAME: lsof - list open files<a class="headerlink" href="#name-lsof-list-open-files" title="Permanent link">&para;</a></h4>
+<p><strong>DESCRIPTION</strong>
++ Lsof  revision  4.95.0 lists on its standard output file information about files opened by processes for the following UNIX dialects:</p>
+<div class="language-text highlight"><pre><span></span><code>        Apple Darwin 9 and Mac OS X 10.[567]
+        FreeBSD 8.[234], 9.0 and 1[012].0 for AMD64-based systems
+        Linux 2.1.72 and above for x86-based systems
+        Solaris 9, 10 and 11
+
+   (See the DISTRIBUTION section of this manual page for information on how to obtain the latest lsof revision.)
+
+   An open file may be a regular file, a directory, a block special file, a character  special  file,  an  executing
+   text  reference, a library, a stream or a network file (Internet socket, NFS file or UNIX domain socket.)  A spe‐
+   cific file or all the files in a file system may be selected by path.
+
+   Instead of a formatted display, lsof will produce output that can be parsed by other programs.  See the  -F,  op‐
+   tion description, and the OUTPUT FOR OTHER PROGRAMS section for more information.
+
+   In addition to producing a single output list, lsof will run in repeat mode.  In repeat mode it will produce out‐
+   put,  delay,  then  repeat  the  output  operation  until stopped with an interrupt or quit signal.  See the +|-r
+   [t[m&lt;fmt&gt;]] option description for more information.
+</code></pre></div>
+<hr />
+<p>ps - report a snapshot of the current processes.
+ps displays information about a selection of the active processes.  If you want a repetitive update of the selection and the displayed information, use top instead.</p>
+<hr />
+<p>lrwxrwxrwx  1 urdevop2526 urdevop2526       27 Jul 10 18:01 .aws -&gt; /mnt/c/Users/Education/.aws
+lrwxrwxrwx  1 urdevop2526 urdevop2526       29 Jul 10 18:01 .azure -&gt; /mnt/c/Users/Education/.azure</p>
+<h2 id="l-symbolic-link">l - symbolic link<a class="headerlink" href="#l-symbolic-link" title="Permanent link">&para;</a></h2>
+<p>Wed Nov  4 06:38:17 PKT 2026</p>
+<h2 id="process-management">Process Management<a class="headerlink" href="#process-management" title="Permanent link">&para;</a></h2>
+<h4 id="commands">Commands:<a class="headerlink" href="#commands" title="Permanent link">&para;</a></h4>
+<ol>
+<li>find</li>
+<li>which</li>
+<li>whereis</li>
+<li>whatis</li>
+<li>echo $PS1</li>
+<li>echo $PATH</li>
+<li>env; printenv</li>
+<li>timedatectl</li>
+<li>ps -aux</li>
+<li>ps -ef</li>
+<li>cal -3 y</li>
+<li>top</li>
+<li>ps -ef | grep -i "tcp"</li>
+<li>ps -eo lstart,cmd,pid,ppid | grep -i tcp</li>
+<li>lsof -p | grep -i</li>
+<li>ss -ntulp | grep -i</li>
+<li>systemctl | grep -i name.service</li>
+<li>systemctl cat name.service</li>
+</ol>
+<hr />
+<h5 id="wed-nov-4-071125-pkt-2026">Wed Nov  4 07:11:25 PKT 2026<a class="headerlink" href="#wed-nov-4-071125-pkt-2026" title="Permanent link">&para;</a></h5>
+<ol>
+<li>kill</li>
+<li>ps -ef | grep -i [c]alico | awk '{print $2}'</li>
+<li>ps -ef | grep -i [c]alico | awk '{print $2}' |xargs</li>
+<li>ps -ef | grep -i [c]alico | awk '{print $2}' | xargs kill</li>
+</ol>
+<hr />
+<h2 id="terms_3">Terms:<a class="headerlink" href="#terms_3" title="Permanent link">&para;</a></h2>
+<p>*container networking infrastructure</p>
+<p>Useful tools:</p>
+<p>Digging Deeper:</p>
+<h2 id="reflection-questions_1">Reflection Questions:<a class="headerlink" href="#reflection-questions_1" title="Permanent link">&para;</a></h2>
+<hr />
+<h2 id="-wed-nov-4-2026-22202-pm-">---Wed Nov 4, 2026 2:22:02 PM---<a class="headerlink" href="#-wed-nov-4-2026-22202-pm-" title="Permanent link">&para;</a></h2>
+<p>Session-3
+Thu Nov  5 01:56:47 PKT 2026</p>
+<h2 id="linux-labs01-system-checking">/Linux-Labs/01-system-checking<a class="headerlink" href="#linux-labs01-system-checking" title="Permanent link">&para;</a></h2>
+<div class="language-text highlight"><pre><span></span><code>- You are a new system administrator at a company. You&#39;ve been tasked with finding out information about a set of servers that has very little to no documentation on it. You find yourself at a command prompt and need to find out what type of system you are working on.
+- What is the release and version of the system?
+- What is the kernel version?
+- How long has the system been up, and how was its kernel called as GRUB booted it?
+- Use the Solution to follow along and look around a new Linux system for the first time.
+
+#First we check what version of Linux we&#39;re on.
+
+$cat /etc/*release
+
+#Next we check the kernel version.
+
+$uname -r
+
+#Next we might want to know how long the system has been up.
+
+$uptime
+
+#Next we might want to see how the system booted and what kernel parameters were passed when the system was started.
+
+    $cat /proc/cmdline
+        #Output: cat /proc/cmdline
+        #initrd=\initrd.img WSL_ROOT_INIT=1 
+        #panic=-1 nr_cpus=8 
+        #hv_utils.timesync_implicit=1 
+        #printk.devkmsg=on page_reporting.page_reporting_order=5 
+        #hv_storvsc.storvsc_max_hw_queues=4 
+        #console=hvc0 
+        #debug 
+        #pty.legacy_count=0 
+        #WSL_ENABLE_CRASH_DUMP=1
+
+## Now let&#39;s dig a little deeper
+## Do each command and think about what output you&#39;re looking at. You may run them multiple times, if needed and to compare the output.
+
+#### Let&#39;s look at the virtual memory usage of this system.
+</code></pre></div>
+<p><div class="language-shell highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>vmstat<span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="m">5</span>
+</span></code></pre></div>
+- What are you seeing here? Is this system under high memory usage or not?
+- Next we check the overall CPU usage of the system every second for 5 seconds.</p>
+<div class="language-text highlight"><pre><span></span><code>`$mpstat 1 5`
+</code></pre></div>
+<ul>
+<li>Is this system under high CPU load or not?</li>
+<li>
+<p>Next we check what processes are running on the system</p>
+<div class="language-text highlight"><pre><span></span><code>$ps -ef
+$ps -ef | awk &#39;{print $1}&#39; | sort | uniq -c
+</code></pre></div>
+<h1 id="what-users-is-using-the-most-processes-do-you-think-this-system-is-doing-any-real-work-or-just-sitting-there-running-an-os">What users is using the most processes? Do you think this system is doing any real work or just sitting there running an OS?<a class="headerlink" href="#what-users-is-using-the-most-processes-do-you-think-this-system-is-doing-any-real-work-or-just-sitting-there-running-an-os" title="Permanent link">&para;</a></h1>
+<h1 id="next-we-check-what-processes-are-executing-on-the-processor-every-second">Next we check what processes are executing on the processor every second.<a class="headerlink" href="#next-we-check-what-processes-are-executing-on-the-processor-every-second" title="Permanent link">&para;</a></h1>
+<div class="language-text highlight"><pre><span></span><code>$pidstat 1 5
+</code></pre></div>
+<h1 id="why-do-these-have-different-length-output-what-processes-were-using-the-most-cpu-which-showed-up-the-most-often">Why do these have different length output? What processes were using the most CPU? Which showed up the most often?<a class="headerlink" href="#why-do-these-have-different-length-output-what-processes-were-using-the-most-cpu-which-showed-up-the-most-often" title="Permanent link">&para;</a></h1>
+<h1 id="next-we-may-want-to-see-more-cpu-and-disk-usage-on-the-system-in-1-second-increments-do-you-think-you-could-modify-this-to-run-for-30-seconds">Next we may want to see more CPU and Disk usage on the system in 1 second increments. Do you think you could modify this to run for 30 seconds?<a class="headerlink" href="#next-we-may-want-to-see-more-cpu-and-disk-usage-on-the-system-in-1-second-increments-do-you-think-you-could-modify-this-to-run-for-30-seconds" title="Permanent link">&para;</a></h1>
+<div class="language-text highlight"><pre><span></span><code>$iostat -xz 1 5
+</code></pre></div>
+<h1 id="lets-look-at-the-network-usage-and-load-of-the-system">Let's look at the network usage and load of the system.<a class="headerlink" href="#lets-look-at-the-network-usage-and-load-of-the-system" title="Permanent link">&para;</a></h1>
+<div class="language-text highlight"><pre><span></span><code>$sar -n DEV 1 5
+</code></pre></div>
+<h1 id="what-are-you-seeing-here-what-devices-are-showing-up-do-any-devices-seem-to-be-under-high-load-which-one-has-the-most-traffic">What are you seeing here? What devices are showing up? Do any devices seem to be under high load? Which one has the most traffic?<a class="headerlink" href="#what-are-you-seeing-here-what-devices-are-showing-up-do-any-devices-seem-to-be-under-high-load-which-one-has-the-most-traffic" title="Permanent link">&para;</a></h1>
+<h1 id="next-we-check-tcp-packets-and-errors">Next we check tcp packets and errors.<a class="headerlink" href="#next-we-check-tcp-packets-and-errors" title="Permanent link">&para;</a></h1>
+<div class="language-text highlight"><pre><span></span><code>$sar -n TCP,ETCP 1 5
+</code></pre></div>
+<h1 id="do-we-appear-to-be-seeing-any-large-numbers-of-errors-why-might-retransmits-be-a-big-problem_1">Do we appear to be seeing any large numbers of errors? Why might retransmits be a big problem?<a class="headerlink" href="#do-we-appear-to-be-seeing-any-large-numbers-of-errors-why-might-retransmits-be-a-big-problem_1" title="Permanent link">&para;</a></h1>
+<hr />
+<h2 id="session-1">Session-1:<a class="headerlink" href="#session-1" title="Permanent link">&para;</a></h2>
+<h6 id="startthursday-november-5-2026-114724-pm-end">Start@Thursday, November 5, 2026 11:47:24 PM | End@<a class="headerlink" href="#startthursday-november-5-2026-114724-pm-end" title="Permanent link">&para;</a></h6>
+</li>
+</ul>
+<h4 id="links_2">Links<a class="headerlink" href="#links_2" title="Permanent link">&para;</a></h4>
+<h4 id="notes-during-lectureclass_2">Notes During Lecture/Class:<a class="headerlink" href="#notes-during-lectureclass_2" title="Permanent link">&para;</a></h4>
+<hr />
+<h4 id="links_3">Links:<a class="headerlink" href="#links_3" title="Permanent link">&para;</a></h4>
+<hr />
+<h4 id="terms_4">Terms:<a class="headerlink" href="#terms_4" title="Permanent link">&para;</a></h4>
+<hr />
+<h4 id="useful-tools_1">Useful tools:<a class="headerlink" href="#useful-tools_1" title="Permanent link">&para;</a></h4>
+<hr />
+<h4 id="digging-deeper_1">Digging Deeper:<a class="headerlink" href="#digging-deeper_1" title="Permanent link">&para;</a></h4>
+<hr />
+<h4 id="reflective-questions_1">Reflective Questions:<a class="headerlink" href="#reflective-questions_1" title="Permanent link">&para;</a></h4>
+<h2 id="1">1.<a class="headerlink" href="#1" title="Permanent link">&para;</a></h2>
+<h4 id="what-questions-do-you-still-have-this-week">What questions do you still have this week?<a class="headerlink" href="#what-questions-do-you-still-have-this-week" title="Permanent link">&para;</a></h4>
+<h2 id="1_1">1.<a class="headerlink" href="#1_1" title="Permanent link">&para;</a></h2>
+<h4 id="how-are-you-going-to-use-what-youve-learned-in-your-current-role">How are you going to use what you've learned in your current role?<a class="headerlink" href="#how-are-you-going-to-use-what-youve-learned-in-your-current-role" title="Permanent link">&para;</a></h4>
+<h2 id="1_2">1.<a class="headerlink" href="#1_2" title="Permanent link">&para;</a></h2>
+<h4 id="what-you-have-build">What you have build?<a class="headerlink" href="#what-you-have-build" title="Permanent link">&para;</a></h4>
+<h2 id="1_3">1.<a class="headerlink" href="#1_3" title="Permanent link">&para;</a></h2>
+<h4 id="thinking-as-a-devops">Thinking as a DevOps<a class="headerlink" href="#thinking-as-a-devops" title="Permanent link">&para;</a></h4>
+<h2 id="1_4">1.<a class="headerlink" href="#1_4" title="Permanent link">&para;</a></h2>
+<h4 id="why-should-i-listen-to-you">Why should I listen to you?<a class="headerlink" href="#why-should-i-listen-to-you" title="Permanent link">&para;</a></h4>
+<h2 id="1_5">1.<a class="headerlink" href="#1_5" title="Permanent link">&para;</a></h2>
+<h4 id="how-much-confident-are-you-in-your-learning">How much confident are you in your learning?<a class="headerlink" href="#how-much-confident-are-you-in-your-learning" title="Permanent link">&para;</a></h4>
+<h2 id="1_6">1.<a class="headerlink" href="#1_6" title="Permanent link">&para;</a></h2>
+<h4 id="how-linux-works">How Linux Works?<a class="headerlink" href="#how-linux-works" title="Permanent link">&para;</a></h4>
+<h2 id="1_7">1.<a class="headerlink" href="#1_7" title="Permanent link">&para;</a></h2>
+<h4 id="scalability-reliability-and-security-in-linux">Scalability, Reliability and Security in Linux<a class="headerlink" href="#scalability-reliability-and-security-in-linux" title="Permanent link">&para;</a></h4>
+<h2 id="1_8">1.<a class="headerlink" href="#1_8" title="Permanent link">&para;</a></h2>
+<h4 id="infrastructure-access-security">Infrastructure, Access, Security<a class="headerlink" href="#infrastructure-access-security" title="Permanent link">&para;</a></h4>
+<h2 id="1_9">1.<a class="headerlink" href="#1_9" title="Permanent link">&para;</a></h2>
+<h4 id="what-is-achieveable-for-you">What is achieveable for you?<a class="headerlink" href="#what-is-achieveable-for-you" title="Permanent link">&para;</a></h4>
+<h2 id="1_10">1.<a class="headerlink" href="#1_10" title="Permanent link">&para;</a></h2>
+<h4 id="order-of-learning">Order of Learning<a class="headerlink" href="#order-of-learning" title="Permanent link">&para;</a></h4>
+<h2 id="1_11">1.<a class="headerlink" href="#1_11" title="Permanent link">&para;</a></h2>
+<h1 id="session-2_1">Session-2<a class="headerlink" href="#session-2_1" title="Permanent link">&para;</a></h1>
+<p><strong>Thu Nov 12 07:49:56 PKT 2026</strong></p>
+<h4 id="links_4">Links<a class="headerlink" href="#links_4" title="Permanent link">&para;</a></h4>
+<div class="language-text highlight"><pre><span></span><code>- https://lsof.readthedocs.io/en/latest/maintaining/
+- https://dev.to/pldg/customize-shell-prompt-2bpa
+</code></pre></div>
+<h4 id="notes">Notes<a class="headerlink" href="#notes" title="Permanent link">&para;</a></h4>
+<h2 id="forget-to-write">forget to write<a class="headerlink" href="#forget-to-write" title="Permanent link">&para;</a></h2>
+<h1 id="session-3-4">Session-3 &amp; 4<a class="headerlink" href="#session-3-4" title="Permanent link">&para;</a></h1>
+<p><strong>Saturday, November 14, 2026 9:28:43 AM</strong>
+<strong>Links:</strong>
+1. Terminal/CLI Fundamentals
+<code>https://www.youtube.com/playlist?list=PLXJyD2dL4oqc93ARRc-ycwnlZ2CTmdUOe</code>
+2. Server Deployment
+<code>https://www.youtube.com/playlist?list=PLXacJyD2dL4oqdQA7QRRFd2Tvev2BAupyOr</code>
+3. SysAdmin Career/Interview
+<code>https://www.youtube.com/playlist?list=PLXJyD2dL4oqdKLI7elGZnxAAXtyB8s_cF</code>
+4. Performance Tuning and Benchmarking
+<code>https://www.youtube.com/playlist?list=PLXJyD2dL4oqcuAp2yp7j2e9e-3a_P4-A8</code></p>
+<ol>
+<li>SystemD
+<div class="language-text highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>https://www.youtube.com/playlist?list=PLXJyD2dL4oqeK7d5fIvqbrAuTnVY3SYkF
+</span></code></pre></div></li>
+</ol>
+<hr />
+<p><strong>Session 5</strong>
+Tue Nov 17 06:39:35 PKT 2026</p>
+<h4 id="links_5">Links<a class="headerlink" href="#links_5" title="Permanent link">&para;</a></h4>
+<ul>
+<li>github.com/het-tanis</li>
+</ul>
+<h4 id="terms_5">Terms<a class="headerlink" href="#terms_5" title="Permanent link">&para;</a></h4>
+<h4 id="useful-tools_2">Useful Tools<a class="headerlink" href="#useful-tools_2" title="Permanent link">&para;</a></h4>
+<hr />
+<ol>
+<li>Revision---&gt;Lecture-1</li>
+<li>block devices</li>
+<li>mount point</li>
+<li>case sensitive</li>
+<li>:w newfile_name</li>
+<li>short keys for vi, vim, nano
+<strong>Session 6</strong>
+Wed Nov 18 02:11:06 PKT 2026</li>
+<li>Linux Engineering Skillset</li>
+<li>being an engineer means "build stuff".</li>
+<li>understand where the value is.</li>
+<li>info+man+[--help]&rarr;for command-help</li>
+<li>cal -jy &rarr; julian day</li>
+<li>location utilities<ol>
+<li>ls $PATH &rarr; shows directory contents (files+directories)</li>
+<li>Permissions &rarr; rwx, numerical method, alphabetic method</li>
+</ol>
+</li>
+<li>echo $$ &rarr; shows process id in bash shell is currently working</li>
+<li>Working with directories<ol>
+<li>any HOME=dir_name can be set as HOME_DIR for locking yourself for specific tasks.</li>
+<li>find<ol>
+<li>find DIR_NAME -n file* or *file</li>
+</ol>
+</li>
+<li>whereis</li>
+<li>which</li>
+<li>echo $PATH</li>
+<li>env; printenv</li>
+<li>echo $VAR_NAME &rarr; show variable path</li>
+<li>System Utilities<ol>
+<li>echo $PS1 &rarr; shows info about current shell or command prompt</li>
+<li>top</li>
+<li>kill</li>
+<li>ps -ef | grep -i PROCESS_NAME &rarr; filters selected processes</li>
+<li>ps -eo lstart,cmd,pid,ppid | grep -i PROCESS_NAME &rarr; filters specific informaton about the process.</li>
+<li>ps -eo lstart,cmd,pid,ppid | grep -i PROCESS_NAME</li>
+<li>lsof -p PID</li>
+<li>ss -ntulp | grep -i PROCESS_NAME or DEVICE_NAME</li>
+<li>ss -t -a -Z</li>
+<li>startup scripts</li>
+<li>systemctl<ol>
+<li>systemctl may be used to introspect and control the state of the "systemd" system and service manager.</li>
+<li>Commands</li>
+<li><strong>Unit Commands (Introspection and Modification)</strong><ol>
+<li>list-units [PATTERN...]</li>
+<li>list-automounts [PATTERN...]</li>
+<li>list-paths [PATTERN...]</li>
+<li>list-sockets [PATTERN...]</li>
+<li>list-timers [PATTERN...]</li>
+<li>is-active PATTERN...</li>
+<li>is-failed [PATTERN...]</li>
+<li>status [PATTERN...|PID...]]</li>
+<li>show [PATTERN...|JOB...]</li>
+<li>cat PATTERN...</li>
+<li>help PATTERN...|PID...</li>
+<li>list-dependencies [UNIT...]</li>
+<li>start PATTERN...</li>
+<li>stop PATTERN...</li>
+<li>reload PATTERN...</li>
+<li>restart PATTERN...</li>
+<li>try-restart PATTERN...</li>
+<li>try-reload-or-restart PATTERN...</li>
+<li>isolate UNIT</li>
+<li>kill PATTERN...</li>
+<li>clean PATTERN...</li>
+<li>freeze PATTERN...</li>
+<li></li>
+</ol>
+</li>
+<li>systemctl cat ssh.service
+    <div class="language-text highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a># /usr/lib/systemd/system/ssh.service
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>[Unit]
+</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>Description=OpenBSD Secure Shell server
+</span><span id="__span-7-4"><a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a>Documentation=man:sshd(8) man:sshd_config(5)
+</span><span id="__span-7-5"><a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a>After=network.target auditd.service
+</span><span id="__span-7-6"><a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a>ConditionPathExists=!/etc/ssh/sshd_not_to_be_run
+</span><span id="__span-7-7"><a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a>
+</span><span id="__span-7-8"><a id="__codelineno-7-8" name="__codelineno-7-8" href="#__codelineno-7-8"></a>[Service]
+</span><span id="__span-7-9"><a id="__codelineno-7-9" name="__codelineno-7-9" href="#__codelineno-7-9"></a>EnvironmentFile=-/etc/default/ssh
+</span><span id="__span-7-10"><a id="__codelineno-7-10" name="__codelineno-7-10" href="#__codelineno-7-10"></a>ExecStartPre=/usr/sbin/sshd -t
+</span><span id="__span-7-11"><a id="__codelineno-7-11" name="__codelineno-7-11" href="#__codelineno-7-11"></a>ExecStart=/usr/sbin/sshd -D $SSHD_OPTS
+</span><span id="__span-7-12"><a id="__codelineno-7-12" name="__codelineno-7-12" href="#__codelineno-7-12"></a>ExecReload=/usr/sbin/sshd -t
+</span><span id="__span-7-13"><a id="__codelineno-7-13" name="__codelineno-7-13" href="#__codelineno-7-13"></a>ExecReload=/bin/kill -HUP $MAINPID
+</span><span id="__span-7-14"><a id="__codelineno-7-14" name="__codelineno-7-14" href="#__codelineno-7-14"></a>KillMode=process
+</span><span id="__span-7-15"><a id="__codelineno-7-15" name="__codelineno-7-15" href="#__codelineno-7-15"></a>Restart=on-failure
+</span><span id="__span-7-16"><a id="__codelineno-7-16" name="__codelineno-7-16" href="#__codelineno-7-16"></a>RestartPreventExitStatus=255
+</span><span id="__span-7-17"><a id="__codelineno-7-17" name="__codelineno-7-17" href="#__codelineno-7-17"></a>Type=notify
+</span><span id="__span-7-18"><a id="__codelineno-7-18" name="__codelineno-7-18" href="#__codelineno-7-18"></a>RuntimeDirectory=sshd
+</span><span id="__span-7-19"><a id="__codelineno-7-19" name="__codelineno-7-19" href="#__codelineno-7-19"></a>RuntimeDirectoryMode=0755
+</span><span id="__span-7-20"><a id="__codelineno-7-20" name="__codelineno-7-20" href="#__codelineno-7-20"></a>
+</span><span id="__span-7-21"><a id="__codelineno-7-21" name="__codelineno-7-21" href="#__codelineno-7-21"></a>[Install]
+</span><span id="__span-7-22"><a id="__codelineno-7-22" name="__codelineno-7-22" href="#__codelineno-7-22"></a>WantedBy=multi-user.target
+</span><span id="__span-7-23"><a id="__codelineno-7-23" name="__codelineno-7-23" href="#__codelineno-7-23"></a>Alias=sshd.service
+</span></code></pre></div>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>useradd -m zeeshan
+</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>su - zeeshan
+</span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>ls -la
+</span><span id="__span-8-4"><a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a>chmod 750 /usr/sbin/ModemManager
+</span><span id="__span-8-5"><a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a>ls -l /usr/sbin/ModemManager
+</span></code></pre></div>
+<strong>Session 7</strong>
+<strong>Thu Nov 19 04:36:56 PKT 2026</strong>
+Thu Nov 19 05:08:09 PKT 2026</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+<p><strong>Revision of Session 5-6</strong>
+1. Block Devices:
+   1. <a href="https://unix.stackexchange.com/questions/437567/displaying-physical-block-devices">https://unix.stackexchange.com/questions/437567/displaying-physical-block-devices</a> [1]
+      1. lsblk (8)- list block devices
+        - Examples:
+          - lsblk -a -d -e 230 [1]</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://zensical.org/" target="_blank" rel="noopener">
+      Zensical
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog" role="status" aria-atomic="true">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      
+      
+        
+        
+      <script id="__config" type="application/json">{"annotate":null,"base":".","features":[],"redirect":null,"search":"./assets/javascripts/workers/search.719e0d91.min.js","tags":null,"translations":{"clipboard.copied":"Copied to clipboard","clipboard.copy":"Copy to clipboard","clipboard.error":"Could not copy to clipboard","search.result.more.one":"1 more on this page","search.result.more.other":"# more on this page","search.result.none":"No matching documents","search.result.one":"1 matching document","search.result.other":"# matching documents","search.result.placeholder":"Type to start searching","search.result.term.missing":"Missing","select.version":"Select version"},"version":null}</script>
+    
+    
+      <script src="./assets/javascripts/bundle.d31f0ffa.min.js"></script>
+      
+    
+  </body>
+</html>
